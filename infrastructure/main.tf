@@ -3,8 +3,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0c55b159cbfafe1f0" # Update to latest Amazon Linux 2 AMI
+  ami           = "ami-0eb9d6fc9fab44d24" # Update to latest AMI
   instance_type = "t2.micro"
+  key_name      = "350FinalProject-key" # Replace with your key pair name
   security_groups = [aws_security_group.app_sg.name]
   user_data = <<-EOF
               #!/bin/bash
