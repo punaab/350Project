@@ -3,9 +3,8 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0eb9d6fc9fab44d24" # Update to latest AMI
+  ami           = "ami-0c55b159cbfafe1f0" # Update to latest Amazon Linux 2 AMI
   instance_type = "t2.micro"
-  key_name      = "350FinalProject-key" # Replace with your key pair name
   security_groups = [aws_security_group.app_sg.name]
   user_data = <<-EOF
               #!/bin/bash
@@ -39,4 +38,4 @@ resource "aws_security_group" "app_sg" {
 
 output "instance_public_ip" {
   value = aws_instance.app_server.public_ip
-} 
+}
